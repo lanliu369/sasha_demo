@@ -1,0 +1,58 @@
+diff --git a/node_modules/@arco-design/web-react/es/_util/react-dom.js b/node_modules/@arco-design/web-react/es/_util/react-dom.js
+index 8155d84..58a9475 100644
+--- a/node_modules/@arco-design/web-react/es/_util/react-dom.js
++++ b/node_modules/@arco-design/web-react/es/_util/react-dom.js
+@@ -93,14 +93,18 @@ export var findDOMNode = function (element, instance) {
+     }
+     return null;
+ };
+-// 回调children的原始 ref ，适配函数 ref or ref.current 场景
++// 回调children的原始 ref ，适配函数 ref or ref.current 场景（React 19: ref 在 props 上）
+ export var callbackOriginRef = function (children, node) {
+-    if (children && children.ref) {
+-        if (isFunction(children.ref)) {
+-            children === null || children === void 0 ? void 0 : children.ref(node);
++    var ref = children &&
++        (children.props && Object.prototype.hasOwnProperty.call(children.props, 'ref')
++            ? children.props.ref
++            : children.ref);
++    if (ref) {
++        if (isFunction(ref)) {
++            ref(node);
+         }
+-        if ('current' in children.ref) {
+-            children.ref.current = node;
++        else if (typeof ref === 'object' && ref !== null && 'current' in ref) {
++            ref.current = node;
+         }
+     }
+ };
+diff --git a/node_modules/@arco-design/web-react/lib/_util/react-dom.js b/node_modules/@arco-design/web-react/lib/_util/react-dom.js
+index 994deff..b902ef4 100644
+--- a/node_modules/@arco-design/web-react/lib/_util/react-dom.js
++++ b/node_modules/@arco-design/web-react/lib/_util/react-dom.js
+@@ -100,14 +100,18 @@ var findDOMNode = function (element, instance) {
+     return null;
+ };
+ exports.findDOMNode = findDOMNode;
+-// 回调children的原始 ref ，适配函数 ref or ref.current 场景
++// 回调children的原始 ref ，适配函数 ref or ref.current 场景（React 19: ref 在 props 上）
+ var callbackOriginRef = function (children, node) {
+-    if (children && children.ref) {
+-        if ((0, is_1.isFunction)(children.ref)) {
+-            children === null || children === void 0 ? void 0 : children.ref(node);
++    var ref = children &&
++        (children.props && Object.prototype.hasOwnProperty.call(children.props, 'ref')
++            ? children.props.ref
++            : children.ref);
++    if (ref) {
++        if ((0, is_1.isFunction)(ref)) {
++            ref(node);
+         }
+-        if ('current' in children.ref) {
+-            children.ref.current = node;
++        else if (typeof ref === 'object' && ref !== null && 'current' in ref) {
++            ref.current = node;
+         }
+     }
+ };

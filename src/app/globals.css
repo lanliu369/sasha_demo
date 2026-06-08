@@ -1,0 +1,760 @@
+@import "tailwindcss";
+@import "@arco-design/web-react/dist/css/arco.css";
+
+@theme inline {
+  --color-brand: #3370ff;
+  --color-brand-hover: #2860e0;
+  --color-brand-light: #ebf1ff;
+  --color-success: #00b578;
+  --color-warning: #ff7d00;
+  --color-danger: #f53f3f;
+  --color-app: #f5f7fa;
+  --color-card: #ffffff;
+  --color-border: #e5e6eb;
+  --color-text-primary: #1f2329;
+  --color-text-secondary: #8f959e;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --shadow-lark-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html[data-theme="dark"] {
+  --color-brand: #4d88ff;
+  --color-brand-hover: #6b9aff;
+  --color-brand-light: #1a2744;
+  --color-app: #0f1114;
+  --color-card: #171a1f;
+  --color-border: #2e3338;
+  --color-text-primary: #e5e6eb;
+  --color-text-secondary: #8f959e;
+}
+
+html[data-theme="dark"] body {
+  background-color: #0f1114;
+  color: #e5e6eb;
+}
+
+html[data-theme="dark"] .arco-card {
+  background-color: #171a1f !important;
+  border-color: #2e3338 !important;
+}
+
+html[data-theme="dark"] .lark-sidebar,
+html[data-theme="dark"] .lark-header {
+  background-color: #171a1f !important;
+  border-color: #2e3338 !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f5f7fa;
+  color: #1f2329;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lark-page-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--color-text-primary);
+}
+
+.lark-module-title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  color: var(--color-text-primary);
+}
+
+.lark-body {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.lark-caption {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-text-secondary);
+}
+
+.lark-card-elevated {
+  border: 1px solid var(--color-border) !important;
+  border-radius: 8px !important;
+  box-shadow: var(--shadow-lark-card) !important;
+  background: var(--color-card) !important;
+}
+
+.lark-nav-active {
+  background-color: var(--color-brand-light) !important;
+  color: var(--color-brand) !important;
+}
+
+.lark-sidebar {
+  width: 240px;
+  background: var(--color-card);
+  border-right: 1px solid var(--color-border);
+}
+
+.lark-header {
+  height: 56px;
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Arco 主题覆盖：飞书蓝 + 卡片轻边框 */
+.arco-btn-primary:not(.arco-btn-disabled) {
+  background-color: #3370ff !important;
+  border-color: #3370ff !important;
+}
+
+.arco-btn-primary:not(.arco-btn-disabled):hover {
+  background-color: #2860e0 !important;
+  border-color: #2860e0 !important;
+}
+
+.arco-card {
+  border: 1px solid #e5e6eb !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  border-radius: 8px !important;
+}
+
+.arco-card-header {
+  align-items: center !important;
+  border-bottom: 1px solid #f0f1f2 !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+}
+
+.arco-card-header-title {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: var(--color-text-primary) !important;
+}
+
+.arco-card-body {
+  padding: 16px 20px 20px !important;
+}
+
+/* 卡片内嵌列表 — 表头与表格贴边，飞书后台风 */
+.lark-data-table-card .arco-card-body,
+.arco-card:has(.lark-table) .arco-card-body {
+  padding: 0 !important;
+}
+
+.lark-data-table-card .arco-card-header,
+.arco-card:has(.lark-table) .arco-card-header {
+  padding: 14px 20px !important;
+  border-bottom: 1px solid #e5e6eb !important;
+}
+
+.lark-table-cell-text {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-text-primary);
+}
+
+/* 飞书风列表 · DemoArcoTable / DataTableCard */
+.lark-table.demo-table-flat .arco-table-th,
+.lark-table.demo-table-flat .arco-table-td,
+.lark-table.demo-table-flat .arco-table-th-item,
+.lark-table.demo-table-flat .arco-table-th-item-title {
+  white-space: nowrap !important;
+}
+
+.lark-table.demo-table-flat .arco-table-td {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.lark-table.demo-table-flat .arco-table-cell-wrap-value {
+  display: flex !important;
+  align-items: center !important;
+  min-width: 0;
+  min-height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lark-table.demo-table-flat .arco-table-cell {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.lark-table.demo-table-flat .arco-table-container {
+  border: none !important;
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.lark-table.demo-table-flat .arco-table-layout-fixed .arco-table-content-inner {
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+
+.lark-table.demo-table-flat .arco-table-content-scroll {
+  overflow: visible !important;
+  height: auto !important;
+}
+
+.lark-table.demo-table-flat .arco-table-body {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.lark-table.demo-table-flat .arco-spin-container {
+  height: auto !important;
+}
+
+.lark-table.demo-table-flat .arco-table-header {
+  background-color: #f2f3f5 !important;
+  border-bottom: none !important;
+}
+
+.lark-table.demo-table-flat .arco-table-th {
+  background-color: #f2f3f5 !important;
+  color: #646a73 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  border-right: none !important;
+  border-bottom: 1px solid #e5e6eb !important;
+}
+
+.lark-table.demo-table-flat .arco-table-size-small .arco-table-th-item {
+  padding: 11px 16px !important;
+  line-height: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.lark-table.demo-table-flat .arco-table-size-small .arco-table-th-item-title {
+  color: #646a73 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.lark-table.demo-table-flat .arco-table-th,
+.lark-table.demo-table-flat .arco-table-td {
+  vertical-align: middle !important;
+}
+
+.lark-table.demo-table-flat .arco-table-size-small .arco-table-td {
+  padding: 12px 16px !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
+  color: #1f2329 !important;
+  background-color: #fff !important;
+  border-right: none !important;
+  border-bottom: 1px solid #f0f1f2 !important;
+  transition: background-color 0.15s ease;
+}
+
+.lark-table.demo-table-flat
+  .arco-table-body
+  .arco-table-tr:last-child
+  .arco-table-td {
+  border-bottom: none !important;
+}
+
+.lark-table.demo-table-flat
+  .arco-table-body
+  .arco-table-tr:nth-child(even)
+  .arco-table-td {
+  background-color: #fff !important;
+}
+
+.lark-table.demo-table-flat .arco-table-body .arco-table-tr:hover .arco-table-td {
+  background-color: #f5f6f7 !important;
+}
+
+.lark-table.demo-table-flat .demo-arco-table-row-selected .arco-table-td {
+  background-color: #ebf1ff !important;
+}
+
+.lark-table.demo-table-flat .demo-arco-table-row-selected:hover .arco-table-td {
+  background-color: #dce8ff !important;
+}
+
+.lark-table.demo-table-flat .arco-table-body .arco-table-tr .arco-table-td:first-child {
+  font-weight: 500;
+  color: #1f2329 !important;
+}
+
+.lark-table.demo-table-flat .arco-table-pagination {
+  padding: 10px 16px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  border-top: 1px solid #e5e6eb;
+  background-color: #fff;
+}
+
+.lark-table.demo-table-flat .arco-table-pagination .arco-pagination {
+  margin: 0 !important;
+  width: 100%;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.lark-table.demo-table-flat .arco-pagination-item {
+  min-width: 28px !important;
+  height: 28px !important;
+  line-height: 26px !important;
+  border-radius: 6px !important;
+  border-color: #dee0e3 !important;
+  font-size: 13px !important;
+}
+
+.lark-table.demo-table-flat .arco-pagination-item-active,
+.lark-table.demo-table-flat .arco-pagination-item-active:hover {
+  background-color: #3370ff !important;
+  border-color: #3370ff !important;
+  color: #fff !important;
+  font-weight: 500 !important;
+}
+
+.lark-table.demo-table-flat .arco-pagination-total-text {
+  margin-right: auto !important;
+  color: #8f959e !important;
+  font-size: 12px !important;
+}
+
+.lark-table.demo-table-flat .arco-tag {
+  border-radius: 4px !important;
+  padding: 0 6px !important;
+  line-height: 20px !important;
+  font-size: 12px !important;
+}
+
+/* 飞书风状态 Tag — 图标 + 文案 */
+.lark-status-tag.arco-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  vertical-align: middle;
+  height: 22px !important;
+  line-height: 22px !important;
+}
+
+.lark-status-tag--with-icon .arco-tag-content {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.lark-status-tag__icon {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+/* 运营驾驶舱 · 分区布局 */
+.cockpit-page {
+  padding-bottom: 8px;
+}
+
+.cockpit-section .lark-card-elevated.arco-card {
+  box-shadow: none;
+}
+
+.lark-kpi-compact.arco-card .arco-card-body {
+  padding: 10px 12px !important;
+}
+
+.lark-progress-board-compact.arco-card .arco-card-header {
+  padding: 10px 16px !important;
+  min-height: 0 !important;
+}
+
+.lark-progress-board-compact.arco-card .arco-card-header-title {
+  font-size: 14px !important;
+  line-height: 22px !important;
+}
+
+.lark-progress-board-compact.arco-card .arco-card-body {
+  padding: 12px 16px !important;
+}
+
+.lark-table.demo-table-flat .arco-table-empty .arco-empty {
+  padding: 32px 16px !important;
+}
+
+html[data-theme="dark"] .lark-table.demo-table-flat .arco-table-header,
+html[data-theme="dark"] .lark-table.demo-table-flat .arco-table-th {
+  background-color: #23262b !important;
+  color: #8f959e !important;
+  border-bottom-color: #2e3338 !important;
+}
+
+html[data-theme="dark"] .lark-table.demo-table-flat .arco-table-size-small .arco-table-td {
+  background-color: #171a1f !important;
+  color: #e5e6eb !important;
+  border-bottom-color: #2e3338 !important;
+}
+
+html[data-theme="dark"] .lark-table.demo-table-flat .arco-table-body .arco-table-tr:hover .arco-table-td {
+  background-color: #23262b !important;
+}
+
+html[data-theme="dark"] .lark-table.demo-table-flat .arco-table-pagination {
+  background-color: #171a1f;
+  border-top-color: #2e3338;
+}
+
+/* 兼容旧选择器 */
+.demo-table-flat .arco-table-th,
+.demo-table-flat .arco-table-td,
+.demo-table-flat .arco-table-th-item,
+.demo-table-flat .arco-table-th-item-title {
+  white-space: nowrap !important;
+}
+
+.arco-table-th {
+  background-color: #f2f3f5 !important;
+  color: #646a73 !important;
+  font-weight: 500 !important;
+}
+
+/* 所有列表表头/单元格横向平铺，避免窄列中文逐字换行堆叠 */
+.arco-table-th,
+.arco-table-td {
+  white-space: nowrap !important;
+}
+
+.arco-table-th-item,
+.arco-table-th-item-title {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}
+
+/* 表单 · 飞书输入风格 */
+.arco-input-inner-wrapper,
+.arco-select-view,
+.arco-textarea {
+  border-radius: 8px !important;
+  border-color: var(--color-border) !important;
+  background-color: var(--color-app) !important;
+}
+
+.arco-input-inner-wrapper:hover,
+.arco-select-view:hover {
+  border-color: #3370ff !important;
+}
+
+.arco-input-inner-wrapper.arco-input-focus,
+.arco-select-view.arco-select-view-focus {
+  border-color: #3370ff !important;
+  box-shadow: 0 0 0 2px rgba(51, 112, 255, 0.12) !important;
+}
+
+.arco-form-label-item > label {
+  font-size: 14px !important;
+  color: var(--color-text-primary) !important;
+}
+
+/* Radio 按钮组 · 飞书分段控件 */
+.arco-radio-group-type-button .arco-radio-button {
+  border-radius: 6px !important;
+}
+
+.arco-radio-group-type-button .arco-radio-checked {
+  background-color: #ebf1ff !important;
+  color: #3370ff !important;
+}
+
+/* 进度条主色 */
+.arco-progress-line-bar {
+  background-color: #3370ff !important;
+}
+
+.arco-card-header-extra {
+  flex-shrink: 0;
+}
+
+.arco-menu-light .arco-menu-item.arco-menu-selected {
+  background-color: #ebf1ff !important;
+  color: #3370ff !important;
+}
+
+.arco-menu-light .arco-menu-item:hover {
+  background-color: #f5f6f7 !important;
+}
+
+/* Arco Tag 兜底：统一为飞书风低饱和语义色 */
+.arco-tag {
+  border: none !important;
+  font-weight: 500 !important;
+}
+
+.arco-tag-green,
+.arco-tag-green.arco-tag-checked {
+  background-color: rgb(16 185 129 / 0.1) !important;
+  color: rgb(5 150 105) !important;
+}
+
+.arco-tag-orange,
+.arco-tag-orange.arco-tag-checked {
+  background-color: rgb(245 158 11 / 0.1) !important;
+  color: rgb(217 119 6) !important;
+}
+
+.arco-tag-red,
+.arco-tag-red.arco-tag-checked {
+  background-color: rgb(244 63 94 / 0.1) !important;
+  color: rgb(225 29 72) !important;
+}
+
+.arco-tag-arcoblue,
+.arco-tag-blue,
+.arco-tag-arcoblue.arco-tag-checked,
+.arco-tag-blue.arco-tag-checked {
+  background-color: rgb(51 112 255 / 0.1) !important;
+  color: #3370ff !important;
+}
+
+.arco-tag-gray,
+.arco-tag-gray.arco-tag-checked {
+  background-color: rgb(100 116 139 / 0.1) !important;
+  color: rgb(71 85 105) !important;
+}
+
+.arco-badge-dot {
+  background-color: #e11d48 !important;
+  box-shadow: 0 0 0 2px #fff !important;
+}
+
+/* 顶栏通知 — 图标居中，角标挂右上角不占位 */
+.demo-header-notify-btn {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #8f959e;
+  cursor: pointer;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.demo-header-notify-btn:hover {
+  color: #1f2329;
+  background-color: #f5f6f7;
+}
+
+.demo-header-notify-count {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 9999px;
+  background-color: #e11d48;
+  box-shadow: 0 0 0 2px #fff;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  pointer-events: none;
+  transform: translate(50%, -50%);
+}
+
+/* 表格分页 — 飞书风（消除 Arco 默认 margin 导致的 tbody/分页断层） */
+.arco-table-pagination {
+  margin-top: 0 !important;
+}
+
+.arco-table-pagination .arco-pagination {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.arco-pagination {
+  justify-content: flex-end;
+}
+
+.arco-pagination-item-active,
+.arco-pagination-item-active:hover {
+  background-color: #3370ff !important;
+  border-color: #3370ff !important;
+  color: #fff !important;
+}
+
+.arco-pagination-item:not(.arco-pagination-item-active):hover {
+  background-color: #f5f6f7 !important;
+  border-color: #dee0e3 !important;
+}
+
+.arco-pagination-total-text {
+  color: #8f959e !important;
+  font-size: 12px !important;
+}
+
+/* 按钮 — 飞书风圆角与边框 */
+.arco-btn {
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-direction: row !important;
+  vertical-align: middle;
+}
+
+.arco-btn-size-small {
+  font-size: 12px !important;
+  line-height: 20px !important;
+}
+
+.demo-stream-select.arco-select {
+  width: auto !important;
+  flex: 0 1 auto;
+  min-width: 180px;
+  max-width: 320px;
+}
+
+.arco-btn-outline:not(.arco-btn-disabled) {
+  border-color: #dee0e3 !important;
+  color: #1f2329 !important;
+  background-color: #fff !important;
+}
+
+.arco-btn-outline:not(.arco-btn-disabled):hover {
+  border-color: rgb(51 112 255 / 0.3) !important;
+  background-color: rgb(51 112 255 / 0.05) !important;
+  color: #3370ff !important;
+}
+
+.arco-btn-text:not(.arco-btn-disabled) {
+  color: #3370ff !important;
+}
+
+/* 输入框 / 选择器 — 飞书风 */
+.arco-input,
+.arco-input-inner-wrapper,
+.arco-select-view,
+.arco-textarea {
+  border-color: #dee0e3 !important;
+  border-radius: 8px !important;
+  background-color: #fff !important;
+}
+
+.arco-input-inner-wrapper:focus-within,
+.arco-select-view:focus-within,
+.arco-select.arco-select-focused .arco-select-view {
+  border-color: #3370ff !important;
+  box-shadow: 0 0 0 2px rgb(51 112 255 / 0.1) !important;
+}
+
+.arco-input-readonly,
+.arco-input-inner-wrapper:has(.arco-input[readonly]) {
+  background-color: rgb(245 246 247 / 0.8) !important;
+}
+
+/* 弹窗 — 轻边框无重阴影 */
+.arco-modal {
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgb(31 35 41 / 0.12) !important;
+}
+
+.arco-modal-header {
+  border-bottom: 1px solid #dee0e3 !important;
+}
+
+.arco-modal-footer {
+  border-top: 1px solid #dee0e3 !important;
+}
+
+.arco-modal-title {
+  color: #1f2329 !important;
+  font-weight: 600 !important;
+}
+
+/* Radio 按钮组 — 规则配置 Tab */
+.demo-radio-tabs.arco-radio-group-button {
+  padding: 4px !important;
+  border: 1px solid #dee0e3 !important;
+  border-radius: 8px !important;
+  background-color: rgb(245 246 247 / 0.5) !important;
+}
+
+.demo-radio-tabs .arco-radio-button {
+  margin: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.demo-radio-tabs .arco-radio-button .arco-radio-button-inner {
+  border: none !important;
+  border-radius: 6px !important;
+  color: #8f959e !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.demo-radio-tabs .arco-radio-checked .arco-radio-button-inner {
+  color: #3370ff !important;
+  background-color: #fff !important;
+  box-shadow: 0 1px 2px rgb(31 35 41 / 0.06) !important;
+  font-weight: 500 !important;
+}
+
+/* Arco Link — 飞书蓝 */
+.arco-link {
+  color: #3370ff !important;
+  font-size: 12px !important;
+}
+
+.arco-link:hover {
+  color: #2860e0 !important;
+}
+
+/* 表单标签 */
+.arco-form-label-item > label {
+  color: #1f2329 !important;
+  font-size: 14px !important;
+}
+
+/* 全流程管控 · 飞书工作流 */
+.lark-flow-workspace {
+  max-width: 100%;
+}
+
+.lark-flow-overview {
+  box-shadow: none;
+}
+
+.lark-flow-step-bar {
+  scrollbar-width: thin;
+}
+
+.lark-flow-step-row {
+  transition: background-color 0.15s ease;
+}
+
+html[data-theme="dark"] .lark-flow-step-row.selected,
+html[data-theme="dark"] .lark-flow-step-row:hover {
+  background-color: rgb(51 112 255 / 0.08);
+}
+

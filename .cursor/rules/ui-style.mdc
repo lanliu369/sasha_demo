@@ -1,0 +1,55 @@
+---
+description: Demo 前端 UI 规范 — 飞书风 + Arco Design 组件库统一
+globs: demo/src/**/*
+alwaysApply: false
+---
+
+# Demo UI 风格规范
+
+依据项目根目录 `demo技术要求`，所有页面 UI 必须统一。
+
+## 技术栈与组件库
+
+- **框架**：Next.js App Router + TypeScript + Tailwind CSS（仅用于布局/间距/主题 token）
+- **组件库**：**Arco Design**（`@arco-design/web-react`）— 按钮、表单、表格、弹窗、标签、分页、选择器等 **必须** 使用 Arco 组件
+- **图标**：Lucide React（作为 Arco 组件的 `icon` 传入，不单独手写图标按钮）
+- **禁止**：原生 `<button>` / `<input>` / `<select>` / 手写 Tailwind 模拟组件库样式
+
+## 飞书 (Lark) 视觉 token
+
+| Token | 值 |
+|-------|-----|
+| Brand | `#3370FF` |
+| App Background | `#F5F6F7` |
+| Card | `#FFFFFF` |
+| Border | `#DEE0E3` |
+| Text Primary | `#1F2329` |
+| Text Secondary | `#8F959E` |
+| 圆角 | `8px` |
+
+Tailwind 对应：`text-brand`、`bg-app`、`bg-card`、`border-border`、`text-text-primary`、`text-text-secondary`、`rounded-lg`
+
+## 公共封装（优先使用，勿重复造轮子）
+
+| 场景 | 组件 |
+|------|------|
+| 数据列表 | `DemoArcoTable` / `DataTableCard` |
+| 按钮 | `DemoButton` / `DemoActionButton` |
+| 弹窗 | `DemoModal` |
+| 分页 | Arco `Pagination`（`DemoPagination` 或 Table 内置） |
+| 下拉 | `NativeSelect`（Arco Select 封装） |
+| 状态标签 | `LarkTag` / `LarkStatusTag`（Arco Tag） |
+| 卡片容器 | Arco `Card`（`bordered`，无重阴影） |
+| Toast | `demoToast`（避免 Arco Message 与 React 19 兼容问题） |
+
+## 语义色
+
+- 成功/警告/危险/信息：使用 Arco Tag 语义色 + `globals.css` 低饱和覆盖
+- 禁止高饱和大红大绿；风险色用 rose/amber 10% 背景
+
+## Arco 主题
+
+- `ArcoProvider` 已配置 `primaryColor: #3370FF`，并引入 `@arco-design/web-react/es/_util/react-19-adapter`
+- `patches/@arco-design+web-react+*.patch` 修复 React 19 下 `element.ref` 警告（`npm install` 后自动应用）
+- 全局覆盖见 `src/app/globals.css`（Card、Table、Tag、Button、Modal、Input、Select 等）
+- 新增组件样式时：**先查 Arco 是否有对应组件**，再通过 `globals.css` 微调 token，勿写一套平行样式
