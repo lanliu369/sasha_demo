@@ -2,7 +2,7 @@ import type { MenuItem } from "@/lib/types";
 
 /**
  * 飞书风格一级导航 IA（路径不变，仅重组展示层级）
- * 工作台 · 调度中心 · 运行监测 · 模块对接 · 分析中心 · 模型中心 · 砂数据追溯 · 预警中心 · 数据存储 · 系统管理
+ * 工作台 · 调度中心 · 运行监测 · 模块对接 · 分析中心 · 模型中心 · 预警中心 · 数据存储 · 系统管理
  */
 export const menuTree: MenuItem[] = [
   {
@@ -22,7 +22,7 @@ export const menuTree: MenuItem[] = [
         key: "quick",
         label: "快捷操作",
         path: "/dashboard/quick",
-        description: "高频功能操作入口：任务下发、告警处置、大屏/移动端推送配置。",
+        description: "高频功能操作入口：任务下发、告警处置、大屏推送配置。",
       },
     ],
   },
@@ -155,13 +155,6 @@ export const menuTree: MenuItem[] = [
           "中台 Web 配置大屏布局与指标，WebSocket 推送至中心大屏展示（含预览入口）。",
       },
       {
-        key: "mobile",
-        label: "移动终端推送配置",
-        path: "/exchange/mobile",
-        description:
-          "中台 Web 配置简版指标与指令模板，推送至移动终端监控与收令。",
-      },
-      {
         key: "monitor",
         label: "接口监控",
         path: "/exchange/monitor",
@@ -240,47 +233,6 @@ export const menuTree: MenuItem[] = [
         label: "训练数据集",
         path: "/analysis/training-data",
         description: "模型训练样本管理、标注质量与数据集版本管理。",
-      },
-    ],
-  },
-  {
-    key: "sand-lifecycle",
-    label: "砂数据追溯",
-    icon: "Database",
-    children: [
-      {
-        key: "supplier",
-        label: "供应商管理",
-        path: "/lifecycle/supplier",
-        description: "供应商信息维护、准入审核与资质管理。",
-      },
-      {
-        key: "procurement",
-        label: "采购与验收数据",
-        path: "/lifecycle/procurement",
-        description:
-          "对接采购验收子系统接口，接收采购订单与到货验收数据；中台只读汇聚展示。",
-      },
-      {
-        key: "warehouse",
-        label: "仓储与转运数据",
-        path: "/lifecycle/warehouse",
-        description:
-          "对接仓储转运子系统接口，接收库存变动与转运批次数据；中台只读汇聚展示。",
-      },
-      {
-        key: "supply",
-        label: "移动上砂补给数据",
-        path: "/lifecycle/supply",
-        description:
-          "对接移动上砂补给子系统接口，接收补给计划与执行回传数据；中台只读汇聚展示。",
-      },
-      {
-        key: "trace",
-        label: "砂数据追溯",
-        path: "/lifecycle/trace",
-        description:
-          "按砂批次追溯：供应商与对接人 → AGV 存放库位 → 上砂设备/站台 → 撒砂区段；设备上报、平台存储。",
       },
     ],
   },
@@ -439,7 +391,7 @@ export const subsystems = [
     key: "mobile",
     name: "移动设备",
     status: "running",
-    menuPath: "/exchange/mobile",
+    menuPath: "/system/mobile",
     tier: "display",
     role: "移动终端 · 岗位协同",
   },

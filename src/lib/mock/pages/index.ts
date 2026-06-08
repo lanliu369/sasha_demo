@@ -596,7 +596,6 @@ export const roles = [
       "模块对接",
       "分析中心",
       "模型中心",
-      "砂数据追溯",
       "预警中心",
       "数据存储",
       "系统管理",
@@ -674,10 +673,8 @@ export const quickActions = [
   { label: "砂处理任务下发", path: "/orchestration/processing-task", desc: "向智能砂处理装置下发任务" },
   { label: "全流程管控", path: "/orchestration/full-flow", desc: "计划→下发→执行→闭环" },
   { label: "大屏推送配置", path: "/exchange/screen", desc: "Web 配置并推送至中心大屏" },
-  { label: "移动端推送配置", path: "/exchange/mobile", desc: "Web 配置并推送至移动终端" },
   { label: "告警处置", path: "/alert/disposal", desc: "处理未闭环告警" },
   { label: "接口监控", path: "/exchange/monitor", desc: "各模块通道健康度" },
-  { label: "供应商管理", path: "/lifecycle/supplier", desc: "砂数据追溯" },
 ];
 
 export const pushConfigs = {

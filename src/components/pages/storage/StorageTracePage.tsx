@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Card, Form, Input } from "@arco-design/web-react";
 import { DataTableCard } from "@/components/demo/DataTableCard";
 import { DemoActionButton } from "@/components/demo/DemoActionButton";
@@ -11,11 +10,7 @@ export function StorageTracePage() {
     <div className="space-y-5">
       <Card bordered className="lark-card-elevated">
         <p className="text-sm text-text-secondary">
-          作业全链路追溯（列车/批次维度）。砂从供应商到撒砂区的批次追溯请见
-          <Link href="/lifecycle/trace" className="mx-1 text-brand hover:underline">
-            砂数据追溯
-          </Link>
-          。
+          作业全链路追溯（列车/批次维度），支持按列车、批次查询关联作业与数据记录。
         </p>
       </Card>
       <Card title="追溯查询" bordered className="lark-card-elevated">

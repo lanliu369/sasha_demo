@@ -6,7 +6,6 @@ import {
   Activity,
   ArrowRight,
   BellRing,
-  Building2,
   ClipboardList,
   Cog,
   GitBranch,
@@ -14,7 +13,6 @@ import {
   PackagePlus,
   Radio,
   Route,
-  Smartphone,
   type LucideIcon,
 } from "lucide-react";
 import { quickActions } from "@/lib/mock/pages";
@@ -27,10 +25,8 @@ const quickActionIcons: Record<string, LucideIcon> = {
   "/orchestration/processing-task": Cog,
   "/orchestration/full-flow": Route,
   "/exchange/screen": Monitor,
-  "/exchange/mobile": Smartphone,
   "/alert/disposal": BellRing,
   "/exchange/monitor": Activity,
-  "/lifecycle/supplier": Building2,
 };
 
 export function DashboardQuickPage() {

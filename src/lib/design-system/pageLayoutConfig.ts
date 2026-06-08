@@ -23,9 +23,6 @@ export const SKIP_SHELL_PATHS = new Set([
   "/model/evaluate",
   "/alert/realtime",
   "/alert/disposal",
-  "/lifecycle/supplier",
-  "/lifecycle/trace",
-  "/lifecycle/trace",
   "/system/users",
 ]);
 
@@ -41,10 +38,6 @@ export const INTRO_ONLY_SHELL_PATHS = new Set([
   "/system/api",
   "/system/logs",
   "/system/maintenance",
-  "/lifecycle/procurement",
-  "/lifecycle/warehouse",
-  "/lifecycle/supply",
-  "/lifecycle/trace",
   "/storage/export",
   "/storage/trace",
   "/model/deploy",
@@ -90,12 +83,6 @@ const sectionDefaultKpis: Record<string, MetricItem[]> = {
     { key: "infer", label: "推理中", value: 8, unit: "车", trend: "up", trendValue: "+1" },
     { key: "acc", label: "平均准确率", value: 94, unit: "%", trend: "up", trendValue: "+0.5%" },
   ],
-  砂数据追溯: [
-    { key: "records", label: "数据记录", value: 1286, unit: "条", trend: "up", trendValue: "+86" },
-    { key: "supplier", label: "准入供应商", value: 12, unit: "家", trend: "up", trendValue: "+1" },
-    { key: "procure", label: "本月采购", value: 8, unit: "批", trend: "flat", trendValue: "—" },
-    { key: "supply", label: "补给计划", value: 5, unit: "项", trend: "up", trendValue: "+2" },
-  ],
   预警中心: [
     { key: "records", label: "数据记录", value: 1286, unit: "条", trend: "up", trendValue: "+86" },
     { key: "alert", label: "待处置", value: 2, unit: "条", trend: "down", trendValue: "-1" },
@@ -123,7 +110,6 @@ const PATHS_WITH_OWN_KPIS = new Set([
   "/exchange/processing",
   "/exchange/inspection",
   "/exchange/screen",
-  "/exchange/mobile",
   "/exchange/monitor",
   "/display/progress",
   "/display/kpi",
@@ -181,7 +167,7 @@ export function getPageLayoutMeta(
 
   return {
     hasOwnKpis,
-    defaultKpis: sectionDefaultKpis[sectionLabel] ?? sectionDefaultKpis["砂数据追溯"],
+    defaultKpis: sectionDefaultKpis[sectionLabel] ?? sectionDefaultKpis["工作台"],
     chartTitle: override.chartTitle ?? "业务数据趋势",
     chartHint: override.chartHint ?? "近 7 日汇总",
     ...override,

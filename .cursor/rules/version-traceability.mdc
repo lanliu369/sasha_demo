@@ -1,0 +1,44 @@
+---
+description: Demo 代码变更版本追溯 — 提交说明、CHANGELOG、部署对照
+alwaysApply: true
+---
+
+# 版本追溯规范
+
+对 `demo/` 内任何功能或配置改动，除写代码外必须同步完成追溯记录。
+
+## 每次改动必做
+
+1. **更新 `CHANGELOG.md`**（项目根 `demo/CHANGELOG.md`）
+   - 在 `[未发布]` 下追加一条，格式：`- **类型(模块)**：一句话说明（涉及文件可选列 1～2 个）`
+   - 类型：`feat` | `fix` | `refactor` | `style` | `chore` | `docs`
+   - 模块示例：调度、展示、模型、系统、部署、全局
+
+2. **在回复末尾给出追溯块**（固定三段）：
+   - **变更摘要**：做了什么、为什么
+   - **建议 commit**：`git commit -m "type(scope): 说明"`
+   - **部署**：`git push` 后 CloudBase 自动部署；提醒端口 3000、强制刷新 `Cmd+Shift+R`
+
+3. **禁止**在未获用户明确要求时执行 `git commit` / `git push`；只更新 CHANGELOG 并提供命令。
+
+## 提交信息格式
+
+```
+type(scope): 简明中文说明
+
+feat     新功能    fix 修复    refactor 重构
+style    样式/文案  chore 配置/工具  docs 文档
+```
+
+示例：`fix(部署): 修复 standalone 静态资源 COPY 路径`
+
+## 对外发版（用户说「给甲方发版」或里程碑时）
+
+1. 将 `[未发布]` 内容移到新版本节 `# vX.Y.Z — YYYY-MM-DD`
+2. 建议打 tag：`git tag -a vX.Y.Z -m "说明"` + `git push origin vX.Y.Z`
+3. 回复中附带 **Demo 地址 + 版本号 + 更新说明** 模板供复制
+
+## 与 CloudBase 对照
+
+- 部署历史中的 **Git commit** 须与本地 commit 一致
+- 回滚用 `git revert <commit>`，避免随意 `git push -f`

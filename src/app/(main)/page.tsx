@@ -4,10 +4,12 @@ import { AppLayout } from "@/components/layout/AppLayout";
 import { AlertList } from "@/components/dashboard/AlertList";
 import { CockpitSection } from "@/components/dashboard/CockpitSection";
 import { DashboardCockpit } from "@/components/dashboard/DashboardCockpit";
+import { HorizontalRankChart } from "@/components/demo/HorizontalRankChart";
 import { ProgressSummary } from "@/components/dashboard/ProgressSummary";
 import { SubsystemPanel } from "@/components/dashboard/SubsystemPanel";
 import { TaskList } from "@/components/dashboard/TaskList";
 import {
+  driverRiskRanking,
   jobProgress,
   pendingTasks,
   recentAlerts,
@@ -20,7 +22,7 @@ export default function DashboardPage() {
         <CockpitSection
           index="01"
           title="运营态势总览"
-          hint="在线列车 · 今日任务 · 预警 · 撒砂成功率 · 模型健康 · 司机风险"
+          hint="在线列车 · 今日任务 · 预警 · 撒砂成功率 · 模型健康"
         >
           <DashboardCockpit />
         </CockpitSection>
@@ -71,7 +73,14 @@ export default function DashboardPage() {
             </Link>
           }
         >
-          <ProgressSummary items={jobProgress} embedded />
+          <div className="space-y-4">
+            <ProgressSummary items={jobProgress} embedded />
+            <HorizontalRankChart
+              title="司机风险排行"
+              hint="按综合风险评分排序 · 详情见模型评估"
+              items={driverRiskRanking}
+            />
+          </div>
         </CockpitSection>
       </div>
     </AppLayout>

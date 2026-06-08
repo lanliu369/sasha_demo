@@ -61,11 +61,6 @@ export const flowLinksByPath: Record<string, FlowLink[]> = {
     { label: "设备状态", path: "/display/device" },
     { label: "作业进度", path: "/display/progress" },
   ],
-  "/exchange/mobile": [
-    { label: "移动设备权限", path: "/system/mobile" },
-    { label: "告警处置", path: "/alert/disposal" },
-    { label: "调度总览", path: "/orchestration/overview" },
-  ],
   "/exchange/monitor": [
     { label: "调度中心", path: "/exchange/dispatch" },
     { label: "车载设备", path: "/exchange/vehicle" },
@@ -212,35 +207,6 @@ export const flowLinksByPath: Record<string, FlowLink[]> = {
     { label: "车载分析", path: "/analysis/vehicle" },
   ],
 
-  "/lifecycle/supplier": [
-    { label: "采购验收", path: "/lifecycle/procurement" },
-    { label: "砂数据追溯", path: "/lifecycle/trace" },
-    { label: "仓储转运", path: "/lifecycle/warehouse" },
-    { label: "上砂补给", path: "/lifecycle/supply" },
-  ],
-  "/lifecycle/procurement": [
-    { label: "供应商管理", path: "/lifecycle/supplier" },
-    { label: "砂数据追溯", path: "/lifecycle/trace" },
-    { label: "仓储转运", path: "/lifecycle/warehouse" },
-  ],
-  "/lifecycle/warehouse": [
-    { label: "采购验收", path: "/lifecycle/procurement" },
-    { label: "砂数据追溯", path: "/lifecycle/trace" },
-    { label: "上砂补给", path: "/lifecycle/supply" },
-    { label: "砂处理平台工单", path: "/orchestration/overview", desc: "工单池筛选" },
-  ],
-  "/lifecycle/supply": [
-    { label: "砂数据追溯", path: "/lifecycle/trace" },
-    { label: "上砂对接", path: "/exchange/loading" },
-    { label: "仓储转运", path: "/lifecycle/warehouse" },
-  ],
-  "/lifecycle/trace": [
-    { label: "供应商管理", path: "/lifecycle/supplier" },
-    { label: "采购验收", path: "/lifecycle/procurement" },
-    { label: "作业追溯", path: "/storage/trace" },
-    { label: "车载分析", path: "/analysis/vehicle" },
-  ],
-
   "/alert/realtime": [
     { label: "告警处置", path: "/alert/disposal" },
     { label: "告警追溯", path: "/alert/trace" },
@@ -265,7 +231,6 @@ export const flowLinksByPath: Record<string, FlowLink[]> = {
   "/alert/config": [
     { label: "实时告警", path: "/alert/realtime" },
     { label: "告警处置", path: "/alert/disposal" },
-    { label: "移动端推送", path: "/exchange/mobile" },
     { label: "大屏推送", path: "/exchange/screen" },
   ],
 
@@ -291,8 +256,8 @@ export const flowLinksByPath: Record<string, FlowLink[]> = {
     { label: "移动权限", path: "/system/mobile" },
   ],
   "/system/mobile": [
-    { label: "移动端推送", path: "/exchange/mobile" },
     { label: "角色权限", path: "/system/roles" },
+    { label: "告警处置", path: "/alert/disposal" },
   ],
   "/system/params": [
     { label: "接口管理", path: "/system/api" },

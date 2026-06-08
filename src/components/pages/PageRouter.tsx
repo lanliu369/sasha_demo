@@ -28,13 +28,6 @@ import { ModelDeployPage } from "@/components/pages/model/ModelDeployPage";
 import { ModelTrainPage } from "@/components/pages/model/ModelTrainPage";
 import { ModelPredictPage } from "@/components/pages/model/ModelPredictPage";
 import { ModelEvaluatePage } from "@/components/pages/model/ModelEvaluatePage";
-import { SandLifecycleTracePage } from "@/components/pages/lifecycle/SandLifecycleTracePage";
-import {
-  SandProcurementPage,
-  SandSupplierPage,
-  SandSupplyPage,
-  SandWarehousePage,
-} from "@/components/pages/lifecycle/SandLifecyclePages";
 import { AlertRealtimePage } from "@/components/pages/alert/AlertRealtimePage";
 import { AlertDisposalPage } from "@/components/pages/alert/AlertDisposalPage";
 import { AlertTracePage } from "@/components/pages/alert/AlertTracePage";
@@ -73,7 +66,6 @@ const pageRegistry: Record<string, PageComponent> = {
   "/exchange/processing": () => <ExchangePage moduleKey="processing" />,
   "/exchange/inspection": () => <ExchangePage moduleKey="inspection" />,
   "/exchange/screen": () => <PushConfigPage type="screen" />,
-  "/exchange/mobile": () => <PushConfigPage type="mobile" />,
   "/exchange/monitor": ExchangeMonitorPage,
 
   "/orchestration/overview": OrchestrationOverviewPage,
@@ -107,12 +99,6 @@ const pageRegistry: Record<string, PageComponent> = {
   "/model/train": ModelTrainPage,
   "/model/predict": ModelPredictPage,
   "/model/evaluate": ModelEvaluatePage,
-
-  "/lifecycle/supplier": SandSupplierPage,
-  "/lifecycle/procurement": SandProcurementPage,
-  "/lifecycle/warehouse": SandWarehousePage,
-  "/lifecycle/supply": SandSupplyPage,
-  "/lifecycle/trace": SandLifecycleTracePage,
 
   "/alert/realtime": AlertRealtimePage,
   "/alert/disposal": AlertDisposalPage,
