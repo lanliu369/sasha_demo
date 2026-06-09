@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { Card, Form, Input, Switch } from "@arco-design/web-react";
+import { ExternalLink } from "lucide-react";
 import { ConnectionHeader } from "@/components/demo/ConnectionHeader";
 import { DemoActionBar } from "@/components/demo/DemoActionBar";
 import { DemoActionButton } from "@/components/demo/DemoActionButton";
@@ -26,11 +28,22 @@ export function PushConfigPage({ type }: PushConfigPageProps) {
       <ConnectionHeader
         config={exchangeConfig}
         extra={
-          <SyncLogsTrigger
-            data={pushLogs}
-            label="最近推送记录"
-            modalTitle="最近推送记录"
-          />
+          <>
+            {type === "screen" ? (
+              <Link
+                href="/display/screen"
+                className="inline-flex items-center gap-1 text-sm text-brand hover:underline"
+              >
+                打开大屏预览
+                <ExternalLink className="size-3.5" aria-hidden />
+              </Link>
+            ) : null}
+            <SyncLogsTrigger
+              data={pushLogs}
+              label="最近推送记录"
+              modalTitle="最近推送记录"
+            />
+          </>
         }
       />
       <MetricCards items={exchangeConfig.metrics} columns={4} moduleKey={type} />

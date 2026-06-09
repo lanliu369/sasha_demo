@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { Card } from "@arco-design/web-react";
+import { ArrowRight } from "lucide-react";
 import { MetricCards } from "@/components/demo/MetricCards";
 import { LarkTag } from "@/components/demo/LarkTag";
 import { deviceStatusList, kpiItems } from "@/lib/mock/pages";
@@ -17,7 +19,20 @@ export function DisplayScreenPage() {
           { key: "alert", label: "活跃告警", value: 2, unit: "条", trend: "down", trendValue: "-1" },
         ]}
       />
-      <Card title="中心大屏预览（Demo）" bordered className="lark-card-elevated">
+      <Card
+        title="中心大屏预览（Demo）"
+        bordered
+        className="lark-card-elevated"
+        extra={
+          <Link
+            href="/exchange/screen"
+            className="inline-flex items-center gap-1 text-sm text-brand hover:underline"
+          >
+            推送配置
+            <ArrowRight className="size-3.5" aria-hidden />
+          </Link>
+        }
+      >
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           <div className="rounded-lg border border-border bg-[#0d1117] p-4 text-white lg:col-span-2">
             <p className="mb-3 text-xs text-gray-400">3840 × 2160 · 2s 刷新</p>

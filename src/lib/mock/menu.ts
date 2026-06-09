@@ -90,6 +90,13 @@ export const menuTree: MenuItem[] = [
         description: "上砂、加砂、砂处理作业进度与异常状态展示。",
       },
       {
+        key: "screen",
+        label: "大屏预览",
+        path: "/display/screen",
+        description:
+          "中心大屏布局预览：设备状态、作业进度、KPI 与告警摘要；与「中心大屏推送配置」联动。",
+      },
+      {
         key: "kpi",
         label: "KPI 指标",
         path: "/display/kpi",
