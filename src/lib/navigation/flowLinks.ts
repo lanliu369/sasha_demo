@@ -236,7 +236,7 @@ export const flowLinksByPath: Record<string, FlowLink[]> = {
 
   "/storage/archive": [
     { label: "数据导出", path: "/storage/export" },
-    { label: "全链路追溯", path: "/storage/trace" },
+    { label: "数据追溯", path: "/storage/trace" },
   ],
   "/storage/export": [
     { label: "数据归档", path: "/storage/archive" },

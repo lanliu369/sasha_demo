@@ -294,9 +294,10 @@ export const menuTree: MenuItem[] = [
       },
       {
         key: "trace",
-        label: "全链路追溯",
+        label: "数据追溯",
         path: "/storage/trace",
-        description: "撒砂作业全链路数据追溯查询。",
+        description:
+          "按列车/批次查询撒砂作业全链路数据追溯，关联调度、上砂、检测等环节记录。",
       },
     ],
   },

@@ -10,7 +10,7 @@ export function StorageTracePage() {
     <div className="space-y-5">
       <Card bordered className="lark-card-elevated">
         <p className="text-sm text-text-secondary">
-          作业全链路追溯（列车/批次维度），支持按列车、批次查询关联作业与数据记录。
+          数据追溯（列车/批次维度）：按列车、批次查询关联调度、上砂、检测等全链路作业与数据记录。
         </p>
       </Card>
       <Card title="追溯查询" bordered className="lark-card-elevated">
@@ -24,7 +24,7 @@ export function StorageTracePage() {
           <Form.Item>
             <DemoActionButton
               confirmTitle="追溯查询"
-              confirmContent="按列车与批次查询全链路追溯记录？"
+              confirmContent="按列车与批次查询数据追溯记录？"
               successMessage="查询完成（Demo）"
             >
               查询
@@ -33,7 +33,7 @@ export function StorageTracePage() {
         </Form>
       </Card>
       <DataTableCard
-        title="全链路追溯结果"
+        title="数据追溯结果"
         data={traceRecords}
         columns={[
           { title: "编号", dataIndex: "id", width: 80 },
